@@ -1,0 +1,10 @@
+Package: beadplot
+Type: Package
+Title: A Tool to Visualise QTL from 4-way MAGIC
+Version: 0.1
+Date: 2015-04-29
+Authors@R: person("Alex", "Whan", email = "alex.whan@csiro.au", 
+            role = c("aut", "cre"))
+Maintainer: Alex Whan <alex.whan@csiro.au>
+Description: beadplot produces static figures to describe QTL output from mpwgaim.
+License: MIT
