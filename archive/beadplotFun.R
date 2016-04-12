@@ -87,10 +87,9 @@ interval2Marker <- function(data) {
 qtlParams <- function(data, map, yVariable, returnMain = FALSE, nameMain = NULL, returnFounder = FALSE, nameFounder = NULL) {
   if(any(grepl("Left", names(data)))) data <- interval2Marker(data)
   if(class(map) == "mpcross") map <- ggGenMap(map)
-  require(SOAR)
   require(zoo)
   require(plyr)
-  #AttachUtils()
+  #browser()
   founders <- levels(as.factor(data$Founder))
   mapDat <- mapParams(map)
   temp <- data
@@ -173,7 +172,7 @@ basePlot <- function(mapParams) {
 }
 
 beadPlotFounder <- function(data, map, yVariable, founderPointRange, founderLabel = NULL, axisTextScale, useTheme = FALSE, multiScale = FALSE) {
-  #browser()
+  ##browser()
   require(ggplot2)
   sizeBreaks <- axisTicks(c(0, max(data$LOGP, na.rm = TRUE)), TRUE)
   if(any(grepl("Left", names(data)))) data <- interval2Marker(data)
@@ -195,6 +194,7 @@ beadPlotFounder <- function(data, map, yVariable, founderPointRange, founderLabe
 
 beadPlotMain <- function(data, map, yVariable, colourBarName = colourBarName, qtlPointRange, mainLabel = NULL, axisTextScale, useTheme = FALSE) {
   if(is.null(colourBarName)) colourBarName = expression(-log[10](p))
+  #browser()
   colourBreaks <- axisTicks(c(0, log10(max(data$LOGP, na.rm = TRUE))), TRUE)
   require(ggplot2)
   if(any(grepl("Left", names(data)))) data <- interval2Marker(data)
