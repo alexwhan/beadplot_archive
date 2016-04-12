@@ -8,3 +8,8 @@ Authors@R: person("Alex", "Whan", email = "alex.whan@csiro.au",
 Maintainer: Alex Whan <alex.whan@csiro.au>
 Description: beadplot produces static figures to describe QTL output from mpwgaim.
 License: MIT
+Depends:
+    R (>=3.2.0)
+    ggplot2
+    tidyr
+    dplyr
