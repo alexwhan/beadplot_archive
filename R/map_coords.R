@@ -27,20 +27,45 @@ get_lg_lengths.tidy_gen_map <- function(obj) {
     summarise(max_mapdist = max(mapdist))
 }
 
+#' Title
+#'
+#' @param obj An object of class cross, map or tidy_gen_df
+#'
+#' @return A vector of linkage group names
+#' @export
+get_lg_names <- function(obj) {
+  UseMethod("get_lg_names")
+}
+
+#' @export
+cross.get_lg_names <- function(obj) {
+  return(names(obj$geno))
+}
+
+#' @export
+map.get_lg_names <- function(obj) {
+  return(names(obj))
+}
+
+#' @export
+tidy_gen_map.get_lg_names <- function(obj) {
+  return(unique(obj$lg))
+}
 
 #' Get offsets for linkage groups
 #'
-#' @param map A map object
+#' @param obj An object of class cross, map or tidy_gen_df
 #' @param order A vector of linkage group names to sort map by
 #'
 #' @return offsets as a vector
 #' @export
-get_lg_offsets <- function(map, order = NULL) {
+get_lg_offsets <- function(obj, order = NULL) {
   if(!is.null(order)) {
     stopifnot(class(order) == "character")
-    stopifnot(all(order %in% names(map)))
-    stopifnot(all(names(map) %in% order))
-    map <- map[order]
+    stopifnot(all(order %in% get_lg_names(obj)))
+    stopifnot(all(get_lg_name(obj) %in% order))
+    # map <- map[order]
+    #TODO rewrite this as S3 generic
   }
   offsets <- purrr::map(map, ~ max(.x)) %>% 
     purrr::accumulate(sum)
