@@ -12,5 +12,6 @@ Depends:
     R (>= 3.2.0),
     ggplot2,
     tidyr,
-    dplyr
+    dplyr,
+    genomap
 RoxygenNote: 6.0.0
