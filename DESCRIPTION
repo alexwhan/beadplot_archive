@@ -10,9 +10,11 @@ Description: beadplot produces static figures to describe QTL output, currently 
 License: MIT
 Depends:
     R (>= 3.2.0),
+Imports:
     ggplot2,
     tidyr,
     dplyr,
+    purrr,
     genomap
 Suggests:
     testthat
