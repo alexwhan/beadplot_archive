@@ -22,9 +22,8 @@ get_lg_lengths.map <- function(obj) {
 
 #' @export
 get_lg_lengths.tidy_gen_map <- function(obj) {
-  obj %>% 
-    dplyr::group_by_("lg") %>% 
-    summarise(max_mapdist = max(mapdist))
+  df <- dplyr::group_by_(obj, "lg")
+  dplyr::summarise(df, max_mapdist = max(mapdist))
 }
 
 #' Title

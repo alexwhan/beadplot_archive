@@ -1,7 +1,7 @@
 Package: beadplot
 Type: Package
 Title: A Tool to Visualise QTL
-Version: 0.1
+Version: 0.0.0.9000
 Date: 2017-02-07
 Authors@R: person("Alex", "Whan", email = "alex.whan@csiro.au", 
             role = c("aut", "cre"))
@@ -14,4 +14,9 @@ Depends:
     tidyr,
     dplyr,
     genomap
+Suggests:
+    testthat
+Remotes:
+    alexwhan/genomap
+LazyData: true
 RoxygenNote: 6.0.0

@@ -4,10 +4,10 @@
 \alias{get_lg_offsets}
 \title{Get offsets for linkage groups}
 \usage{
-get_lg_offsets(map, order = NULL)
+get_lg_offsets(obj, order = NULL)
 }
 \arguments{
-\item{map}{A map object}
+\item{obj}{An object of class cross, map or tidy_gen_df}
 
 \item{order}{A vector of linkage group names to sort map by}
 }
