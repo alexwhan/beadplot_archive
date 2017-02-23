@@ -17,3 +17,4 @@ offsets as a vector
 \description{
 Get offsets for linkage groups
 }
+

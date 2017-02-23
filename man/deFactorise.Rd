@@ -11,3 +11,4 @@ deFactorise(data, ignore.var = NULL)
  @param ignore.var Any variables to ignore. Default is NULL.
  @return The updated data.frame.
 }
+

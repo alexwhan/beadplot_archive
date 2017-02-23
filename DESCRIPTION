@@ -6,7 +6,8 @@ Date: 2017-02-07
 Authors@R: person("Alex", "Whan", email = "alex.whan@csiro.au", 
             role = c("aut", "cre"))
 Maintainer: Alex Whan <alex.whan@csiro.au>
-Description: beadplot produces static figures to describe QTL output, currently only from mpwgaim.
+Description: beadplot produces static figures to describe QTL output, currently
+    only from mpwgaim.
 License: MIT
 Depends:
     R (>= 3.2.0),
@@ -18,7 +19,6 @@ Imports:
     genomap
 Suggests:
     testthat
-Remotes:
-    alexwhan/genomap
+Remotes: alexwhan/genomap
 LazyData: true
-RoxygenNote: 6.0.0
+RoxygenNote: 5.0.1
