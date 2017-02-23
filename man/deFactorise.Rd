@@ -6,9 +6,15 @@
 \usage{
 deFactorise(data, ignore.var = NULL)
 }
+\arguments{
+\item{data}{A data.frame.}
+
+\item{ignore.var}{Any variables to ignore. Default is NULL.}
+}
+\value{
+The updated data.frame.
+}
 \description{
-@param data A data.frame.
- @param ignore.var Any variables to ignore. Default is NULL.
- @return The updated data.frame.
+Identifies factor variables in a data.frame and converts them to character
 }
 
