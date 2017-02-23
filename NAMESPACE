@@ -2,6 +2,7 @@
 
 S3method(get_lg_lengths,cross)
 S3method(get_lg_lengths,map)
+S3method(get_lg_lengths,mpcross)
 S3method(get_lg_lengths,tidy_gen_map)
 export(cross.get_lg_names)
 export(get_lg_lengths)

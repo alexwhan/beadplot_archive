@@ -21,6 +21,12 @@ get_lg_lengths.map <- function(obj) {
 }
 
 #' @export
+get_lg_lengths.mpcross <- function(obj) {
+  obj <- genomap::map2df(obj)
+  get_lg_lengths(obj)
+}
+
+#' @export
 get_lg_lengths.tidy_gen_map <- function(obj) {
   df <- dplyr::group_by_(obj, "lg")
   dplyr::summarise(df, max_mapdist = max(mapdist))
