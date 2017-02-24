@@ -7,17 +7,15 @@
 #' vec2 <- c(vec1, "A")
 #' nonNumeric(vec1)
 #' nonNumeric(vec2)
-
 nonNumeric <- function(x) {
   suppressWarnings(any(is.na(as.numeric(x[!is.na(x)]))))
 }
 
 #' Identifies factor variables in a data.frame and converts them to character
 #' 
-#'  @param data A data.frame.
-#'  @param ignore.var Any variables to ignore. Default is NULL.
-#'  @return The updated data.frame.
-
+#' @param data A data.frame.
+#' @param ignore.var Any variables to ignore. Default is NULL.
+#' @return The updated data.frame.
 deFactorise <- function(data, ignore.var = NULL) {
   facVar <- names(sapply(data, class)[which(sapply(data, class) == "factor")])
   for(var in facVar[!facVar %in% ignore.var]) {
@@ -31,7 +29,6 @@ deFactorise <- function(data, ignore.var = NULL) {
 #' @param data A data.frame.
 #' @param ignore.var Any variables to ignore. Default is NULL.
 #' @return The updated data.frame.
-
 autoNumeric <- function(data, ignore.var = NULL) {
   charVar <- names(sapply(data, class)[which(sapply(data, class) == "character")])
   for(var in charVar[!charVar %in% ignore.var]) {
