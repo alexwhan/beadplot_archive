@@ -24,7 +24,7 @@ qtl_sum <- sim_df %>%
          Founder = "NOFOUNDER",  #This is also a hard coded requirement, duh.
          Founder.Prob = 1,
          Founder.LOGP = 1) %>% #More archaic requirements
-  rename(Chromosome = id, #Ugh, this is another hardcoded requirement
+  dplyr::rename(Chromosome = id, #Ugh, this is another hardcoded requirement
          dist..cM. = distance) #and yet another! this is because of wgaim output format
 
 #Make a beadplot
