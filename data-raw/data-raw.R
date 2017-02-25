@@ -48,7 +48,7 @@ ee <- rnorm(ngeno*nrep,0,1)
 uu <- rnorm(ngeno,0,1)
 pheno.data$y <- 10 + rep(qtl.effect,2) + sqrt(1/2)*c(uu,uu) + ee
 sim.asr0 <- asreml(y ~ 1, random = ~ id, data=pheno.data)
-sim.qtl <- mpwgaim(sim.asr0, pheno.data, m4_int, merge.by = "id",
+sim.qtl <- mpwgaim(sim.asr0, pheno.data, m4_int_qtl, merge.by = "id",
                    verboseLev=0, gen.type="interval", na.method.X='include',
                    data.name = "sim.data")
-m4_summary <- summary(sim.qtl, m4_int)
+m4_summary <- summary(sim.qtl, m4_int_qtl)
