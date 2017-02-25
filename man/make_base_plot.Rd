@@ -15,4 +15,3 @@ A ggplot object
 \description{
 Makes a linear ggplot object based on genetic map
 }
-

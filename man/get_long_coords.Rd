@@ -15,4 +15,3 @@ A data.frame
 \description{
 Get long version of map_coords
 }
-
