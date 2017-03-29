@@ -37,6 +37,7 @@ make_founder_plot <- function(obj) {
   nfounders <- nfounders(obj)
   map_df <- purrr::map_df(seq_along(1:nfounders), 
                           ~ dplyr::mutate_(map_df, "founder" = .x))
-  gg <- ggplot2::ggplot(map_df, ggplot2::aes_string("mapdist", "founder")) +
-    ggplot2::geom_line(ggplot2::aes_string(colour = "lg", group = "founder"))
+  gg <- ggplot2::ggplot(map_df, ggplot2::aes_string("mapdist", 1)) +
+    ggplot2::geom_line(ggplot2::aes_string(colour = "lg")) +
+    ggplot2::facet_grid(founder ~ .)
 }
