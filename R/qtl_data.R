@@ -32,7 +32,7 @@ mpwgaim_summary_tidy.data.frame <- function(obj) {
 if(!log2(nfounders) %in% 1:3) stop("The number of founders doesn't look right, there should\n
                                      be 2, 4 or 8")
   
-  obj <- as_data_frame(apply(obj, 2, function(x) {
+  obj <- dplyr::as_data_frame(apply(obj, 2, function(x) {
     x[x == ""] <- NA
     return(na.locf(x))
   }))
