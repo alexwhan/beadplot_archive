@@ -31,3 +31,30 @@ autoNumeric <- function(data, ignore.var = NULL) {
   }
   return(data)
 }
+
+#' A stripped down version of zoo::na.locf()
+#'
+#' @param object 
+#' @return
+na.locf <- function(object) {
+  
+  na.locf.0 <- function(x) {
+    L <- !is.na(x)
+    idx <- c(NA,which(L))[cumsum(L)+1]
+    na.index <- function(x, i) {
+      L <- !is.na(i)
+      x[!L] <- NA
+      x[L] <- x[i[L]]
+      x
+    }
+    xf <- na.index(x, idx)
+    naruns <- rle(is.na(x))
+    naok <- inverse.rle(naruns)
+    ifelse(naok, xf, x)
+  }
+  object[] <- if (length(dim(object)) == 0)
+    na.locf.0(object)
+  else
+    apply(object, length(dim(object)), na.locf.0)
+  return(object)
+}
