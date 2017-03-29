@@ -70,3 +70,28 @@ base_qtl_data.data.frame <- function(obj) {
   base_qtl <- base_qtl[((1:(nrow(base_qtl) / nfounders)) - 1) * nfounders + 1, ]
   return(base_qtl)
 }
+
+#' Get founder qtl data
+#'
+#' @param obj An object of class summary.wgaim or data.frame
+#'
+#' @return A data.frame
+#' @export
+founder_qtl_data <- function(obj) {
+  UseMethod("founder_qtl_data")
+}
+
+#' @export
+founder_qtl_data.summary.mpwgaim <- function(obj) {
+  mpwgaim_tbl <- obj$summary
+  founder_qtl_data(mpwgaim_tbl)
+}
+
+#' @export
+founder_qtl_data.data.frame <- function(obj) {
+  tidy_qtl <- mpwgaim_summary_tidy(obj)
+  founder_qtl <- dplyr::select_(tidy_qtl, "qtl", "lg", "qtl_centre",
+                                "founder", "founder_cont", "founder_prob",
+                                "founder_logp")
+  return(founder_qtl)
+}
