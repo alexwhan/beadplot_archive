@@ -27,7 +27,7 @@ deFactorise <- function(data, ignore.var = NULL) {
 autoNumeric <- function(data, ignore.var = NULL) {
   charVar <- names(sapply(data, class)[which(sapply(data, class) == "character")])
   for(var in charVar[!charVar %in% ignore.var]) {
-    if(nonNumeric(data[, var])) data[, var] <- as.numeric(data[, var])
+    if(!nonNumeric(data[[var]])) data[[var]] <- as.numeric(data[[var]])
   }
   return(data)
 }
