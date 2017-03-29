@@ -34,8 +34,8 @@ autoNumeric <- function(data, ignore.var = NULL) {
 
 #' A stripped down version of zoo::na.locf()
 #'
-#' @param object 
-#' @return
+#' @param object a vector
+#' @return vector with NA removed
 na.locf <- function(object) {
   
   na.locf.0 <- function(x) {
