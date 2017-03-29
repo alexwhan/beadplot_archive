@@ -27,7 +27,34 @@ deFactorise <- function(data, ignore.var = NULL) {
 autoNumeric <- function(data, ignore.var = NULL) {
   charVar <- names(sapply(data, class)[which(sapply(data, class) == "character")])
   for(var in charVar[!charVar %in% ignore.var]) {
-    if(nonNumeric(data[, var])) data[, var] <- as.numeric(data[, var])
+    if(!nonNumeric(data[[var]])) data[[var]] <- as.numeric(data[[var]])
   }
   return(data)
+}
+
+#' A stripped down version of zoo::na.locf()
+#'
+#' @param object a vector
+#' @return vector with NA removed
+na.locf <- function(object) {
+  
+  na.locf.0 <- function(x) {
+    L <- !is.na(x)
+    idx <- c(NA,which(L))[cumsum(L)+1]
+    na.index <- function(x, i) {
+      L <- !is.na(i)
+      x[!L] <- NA
+      x[L] <- x[i[L]]
+      x
+    }
+    xf <- na.index(x, idx)
+    naruns <- rle(is.na(x))
+    naok <- inverse.rle(naruns)
+    ifelse(naok, xf, x)
+  }
+  object[] <- if (length(dim(object)) == 0)
+    na.locf.0(object)
+  else
+    apply(object, length(dim(object)), na.locf.0)
+  return(object)
 }
