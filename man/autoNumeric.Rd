@@ -17,3 +17,4 @@ The updated data.frame.
 \description{
 Converts character data.frame variables to numeric if it will not coerce to NA
 }
+
