@@ -18,3 +18,4 @@ Make a founder plot
 \examples{
 make_founder_plot(m4_cross_qtl)
 }
+

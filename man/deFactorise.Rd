@@ -17,3 +17,4 @@ The updated data.frame.
 \description{
 Identifies factor variables in a data.frame and converts them to character
 }
+

@@ -53,4 +53,4 @@ sim.qtl <- mpwgaim(sim.asr0, pheno.data, m4_int_qtl, merge.by = "id",
                    data.name = "sim.data")
 m4_summary <- summary(sim.qtl, m4_int_qtl)
 
-save(m4_summary, file = "data/m4_summary.rda")
+#save(m4_summary, file = "data/m4_summary.rda")

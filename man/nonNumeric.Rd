@@ -21,3 +21,4 @@ vec2 <- c(vec1, "A")
 nonNumeric(vec1)
 nonNumeric(vec2)
 }
+

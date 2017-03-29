@@ -15,3 +15,4 @@ The number of founders
 \description{
 Get number of founders of a multi-parental object
 }
+

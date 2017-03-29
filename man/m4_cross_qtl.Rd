@@ -17,3 +17,4 @@ m4_cross_qtl
 A cross produced by mpMap, with a qtl model
 }
 \keyword{datasets}
+
