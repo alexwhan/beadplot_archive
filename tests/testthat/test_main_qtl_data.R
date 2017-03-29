@@ -1,4 +1,4 @@
-context("base_qtl_data")
+context("main_qtl_data")
 
 ref_dat <- structure(list(qtl = 1:2, lg = c(4, 5), qtl_centre = c(31.03, 77.66), 
                           qtl_prob = c(0.007, 0), qtl_perc_var = c(4.2, 9), 
@@ -9,11 +9,11 @@ ref_dat <- structure(list(qtl = 1:2, lg = c(4, 5), qtl_centre = c(31.03, 77.66),
                      class = c("tbl_df", "tbl", "data.frame"))
 
 obj_wrong_names <- m4_summary$summary[,1:6]
-test_that("base_qtl_data returns the correct data", {
-  expect_equal(base_qtl_data(m4_summary), ref_dat)
-  expect_equal(base_qtl_data(m4_summary$summary), ref_dat)
+test_that("main_qtl_data returns the correct data", {
+  expect_equal(main_qtl_data(m4_summary), ref_dat)
+  expect_equal(main_qtl_data(m4_summary$summary), ref_dat)
 })
 
-test_that("base_qtl_data returns error for incorrectly named obj", {
-  expect_error(base_qtl_data(obj_wrong_names))
+test_that("main_qtl_data returns error for incorrectly named obj", {
+  expect_error(main_qtl_data(obj_wrong_names))
 })

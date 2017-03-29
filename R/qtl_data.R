@@ -45,30 +45,30 @@ if(!log2(nfounders) %in% 1:3) stop("The number of founders doesn't look right, t
   return(obj)
 }
 
-#' Get base qtl data
+#' Get main effect qtl data
 #'
 #' @param obj An object of class summary.wgaim or data.frame
 #'
 #' @return A data.frame
 #' @export
-base_qtl_data <- function(obj) {
-  UseMethod("base_qtl_data")
+main_qtl_data <- function(obj) {
+  UseMethod("main_qtl_data")
 }
 
 #' @export
-base_qtl_data.summary.mpwgaim <- function(obj) {
+main_qtl_data.summary.mpwgaim <- function(obj) {
   mpwgaim_tbl <- obj$summary
-  base_qtl_data(mpwgaim_tbl)
+  main_qtl_data(mpwgaim_tbl)
 }
 
 #' @export
-base_qtl_data.data.frame <- function(obj) {
+main_qtl_data.data.frame <- function(obj) {
   tidy_qtl <- mpwgaim_summary_tidy(obj)
-  base_qtl <- dplyr::select_(tidy_qtl, "qtl", "lg", "qtl_centre",
+  main_qtl <- dplyr::select_(tidy_qtl, "qtl", "lg", "qtl_centre",
                              "qtl_prob", "qtl_perc_var", "qtl_logp")
   nfounders <- nrow(obj) / length(unique(tidy_qtl$qtl))
-  base_qtl <- base_qtl[((1:(nrow(base_qtl) / nfounders)) - 1) * nfounders + 1, ]
-  return(base_qtl)
+  main_qtl <- main_qtl[((1:(nrow(main_qtl) / nfounders)) - 1) * nfounders + 1, ]
+  return(main_qtl)
 }
 
 #' Get founder qtl data
