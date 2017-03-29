@@ -2,11 +2,6 @@
 #' 
 #' @param x A vector to be inspected.
 #' @return TRUE or FALSE
-#' @examples
-#' vec1 <- 1:10
-#' vec2 <- c(vec1, "A")
-#' nonNumeric(vec1)
-#' nonNumeric(vec2)
 nonNumeric <- function(x) {
   suppressWarnings(any(is.na(as.numeric(x[!is.na(x)]))))
 }
