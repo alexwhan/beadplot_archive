@@ -24,7 +24,7 @@ for (ii in 1:(nqtl.col/2)) {
 qtl.sizes <- as.vector(t(m4_qtl[,3:6]))
 qtl.effect <- mmat %*% qtl.sizes
 ## Polygenic variance
-pvar <- 0.5
+pvar <- 0.2
 ## Function to calculate approximate percentage variance for each QTL
 perc.var <- function(m4_qtl, poly.var) {
   nfounders <- dim(m4_qtl)[2]-2
@@ -52,3 +52,5 @@ sim.qtl <- mpwgaim(sim.asr0, pheno.data, m4_int_qtl, merge.by = "id",
                    verboseLev=0, gen.type="interval", na.method.X='include',
                    data.name = "sim.data")
 m4_summary <- summary(sim.qtl, m4_int_qtl)
+
+save(m4_summary, file = "data/m4_summary.rda")
