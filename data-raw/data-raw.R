@@ -50,3 +50,19 @@ sim.qtl <- mpwgaim(sim.asr0, pheno.data, m4_int_qtl, merge.by = "id",
 m4_summary <- summary(sim.qtl, m4_int_qtl)
 
 save(m4_summary, file = "data/m4_summary.rda")
+
+set.seed(1234)
+small_map <- qtl::sim.map(len = sample(20, 1), n.mar = sample(10), 
+                          include.x = FALSE)
+
+small_cross <- qtl::sim.cross(small_map, type = "f2")
+
+small_ped <- sim.mpped(4, 3, 1, 6, 1)
+
+small_qtl <- matrix(data=c(1, 142, 0.354, -0.354, -0.354, 0.354),
+                    nrow=3, ncol=6, byrow=TRUE)
+
+small_mpcross <- mpMap::sim.mpcross(small_map, small_ped, small_qtl)
+save(small_mpcross, file = "data/small_mpcross.rda")
+small_mpint <- mpcross2int(small_mpcross, gen.type = "mpInterval")
+save(small_mpint, file = "data/small_mpint.rda")
