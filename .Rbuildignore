@@ -1,0 +1,4 @@
+^\.travis\.yml$
+^.*\.Rproj$
+^data-raw/*$
+^\.Rproj\.user$

@@ -8,7 +8,7 @@ Authors@R: person("Alex", "Whan", email = "alex.whan@csiro.au",
 Maintainer: Alex Whan <alex.whan@csiro.au>
 Description: beadplot produces static figures to describe QTL output, currently
     only from mpwgaim.
-License: MIT
+License: MIT + file LICENSE
 Depends:
     R (>= 3.2.0),
 Imports:
@@ -16,7 +16,8 @@ Imports:
     tidyr,
     dplyr,
     purrr,
-    genomap
+    genomap,
+    gridExtra
 Suggests:
     testthat
 Remotes: alexwhan/genomap

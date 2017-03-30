@@ -15,10 +15,4 @@ TRUE or FALSE
 \description{
 Checks if any non-numeric elements are present
 }
-\examples{
-vec1 <- 1:10
-vec2 <- c(vec1, "A")
-nonNumeric(vec1)
-nonNumeric(vec2)
-}
 

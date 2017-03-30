@@ -5,10 +5,10 @@
 #' @return A ggplot object
 #' @export
 #'
-make_base_plot <- function(obj) {
+make_main_plot <- function(obj) {
   map_df <- get_long_coords(obj)
   gg <- ggplot2::ggplot(map_df, ggplot2::aes_string("mapdist", 1)) +
-    ggplot2::geom_line(ggplot2::aes_string(colour = "lg"))
+    ggplot2::geom_line(ggplot2::aes_string())
 }
 
 #' Get long version of map_coords
@@ -34,9 +34,10 @@ get_long_coords <- function(obj) {
 #' make_founder_plot(m4_cross_qtl)
 make_founder_plot <- function(obj) {
   map_df <- get_long_coords(obj)
-  nfounders <- nfounders(obj)
-  map_df <- purrr::map_df(seq_along(1:nfounders), 
-                          ~ dplyr::mutate_(map_df, "founder" = .x))
-  gg <- ggplot2::ggplot(map_df, ggplot2::aes_string("mapdist", "founder")) +
-    ggplot2::geom_line(ggplot2::aes_string(colour = "lg", group = "founder"))
+  nf <- nfounders(obj)
+  map_df <- purrr::map_df(founder_names(obj), 
+                          ~ dplyr::mutate(map_df, founder = .x))
+  gg <- ggplot2::ggplot(map_df, ggplot2::aes_string("mapdist", 1)) +
+    ggplot2::geom_line(ggplot2::aes_string()) +
+    ggplot2::facet_grid(founder ~ .)
 }
