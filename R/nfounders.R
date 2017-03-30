@@ -27,3 +27,28 @@ nfounders.cross <- function(obj) {
 nfounders.map <- function(obj) {
   return(2)
 }
+
+#' Get founder names
+#'
+#' @param obj An mpcross or mpInterval object
+#'
+#' @return The founder names (character vector)
+#' @export
+founder_names <- function(obj) {
+  UseMethod("founder_names")
+}
+
+#' @export
+founder_names.mpInterval <- function(obj) {
+  return(obj$founders)
+}
+
+#' @export
+founder_names.mpcross <- function(obj) {
+  return(row.names(obj$founders))
+}
+
+#' @export
+founder_names.default <- function(obj) {
+  return(1:2)
+}

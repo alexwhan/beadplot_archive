@@ -66,6 +66,7 @@ main_qtl_data.data.frame <- function(obj) {
   tidy_qtl <- mpwgaim_summary_tidy(obj)
   main_qtl <- dplyr::select_(tidy_qtl, "qtl", "lg", "qtl_centre",
                              "qtl_prob", "qtl_perc_var", "qtl_logp")
+  main_qtl$lg <- as.character(main_qtl$lg)
   nfounders <- nrow(obj) / length(unique(tidy_qtl$qtl))
   main_qtl <- main_qtl[((1:(nrow(main_qtl) / nfounders)) - 1) * nfounders + 1, ]
   return(main_qtl)
@@ -93,5 +94,6 @@ founder_qtl_data.data.frame <- function(obj) {
   founder_qtl <- dplyr::select_(tidy_qtl, "qtl", "lg", "qtl_centre",
                                 "founder", "founder_cont", "founder_prob",
                                 "founder_logp")
+  founder_qtl$lg <- as.character(founder_qtl$lg)
   return(founder_qtl)
 }
