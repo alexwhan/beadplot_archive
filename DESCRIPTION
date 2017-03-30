@@ -16,7 +16,8 @@ Imports:
     tidyr,
     dplyr,
     purrr,
-    genomap
+    genomap,
+    gridExtra
 Suggests:
     testthat
 Remotes: alexwhan/genomap

@@ -4,12 +4,17 @@
 \alias{make_founder_qtl_plot}
 \title{Make founder qtl plot}
 \usage{
-make_founder_qtl_plot(obj, qtl_summary)
+make_founder_qtl_plot(obj, qtl_summary, founder_bead_size = "founder_logp",
+  founder_bead_col = "founder_cont")
 }
 \arguments{
 \item{obj}{An object of class 'cross', 'map', 'mpcross', 'tidy_gen_map'}
 
 \item{qtl_summary}{An object of class mpwgaim.summary or a data.frame}
+
+\item{founder_bead_size}{Character - name of the variable mapped to bead size}
+
+\item{founder_bead_col}{Character - name of the variable mapped to bead colour}
 }
 \value{
 a ggplot object
