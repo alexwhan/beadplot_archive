@@ -8,7 +8,7 @@
 make_main_plot <- function(obj) {
   map_df <- get_long_coords(obj)
   gg <- ggplot2::ggplot(map_df, ggplot2::aes_string("mapdist", 1)) +
-    ggplot2::geom_line(ggplot2::aes_string(colour = "lg"))
+    ggplot2::geom_line(ggplot2::aes_string())
 }
 
 #' Get long version of map_coords
@@ -38,6 +38,6 @@ make_founder_plot <- function(obj) {
   map_df <- purrr::map_df(founder_names(obj), 
                           ~ dplyr::mutate(map_df, founder = .x))
   gg <- ggplot2::ggplot(map_df, ggplot2::aes_string("mapdist", 1)) +
-    ggplot2::geom_line(ggplot2::aes_string(colour = "lg")) +
+    ggplot2::geom_line(ggplot2::aes_string()) +
     ggplot2::facet_grid(founder ~ .)
 }
