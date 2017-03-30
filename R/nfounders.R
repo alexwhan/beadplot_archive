@@ -47,3 +47,8 @@ founder_names.mpInterval <- function(obj) {
 founder_names.mpcross <- function(obj) {
   return(row.names(obj$founders))
 }
+
+#' @export
+founder_names.default <- function(obj) {
+  return(1:2)
+}

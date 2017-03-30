@@ -15,7 +15,7 @@ make_main_qtl_plot <- function(obj, qtl_summary) {
   
   #Make base main plot
   base_main <- make_main_plot(obj) +
-    ggplot2::geom_point(data = main_qtl, aes_string(x = "qtl_centre_offset"))
+    ggplot2::geom_point(data = main_qtl, ggplot2::aes_string(x = "qtl_centre_offset"))
 }
 
 #' Make founder qtl plot
