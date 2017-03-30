@@ -23,8 +23,8 @@ make_main_qtl_plot <- function(obj, qtl_summary, main_bead_size = "qtl_perc_var"
                         ggplot2::aes_string(x = "qtl_centre_offset",
                                             size = main_bead_size,
                                             colour = main_bead_col)) +
-    scale_colour_gradient(low = "white", high = "red") +
-    facet_grid(facet_label ~ .)
+    ggplot2::scale_colour_gradient(low = "white", high = "red") +
+    ggplot2::facet_grid(facet_label ~ .)
 }
 
 #' Make founder qtl plot
@@ -51,6 +51,6 @@ make_founder_qtl_plot <- function(obj, qtl_summary, founder_bead_size = "founder
                         ggplot2::aes_string(x = "qtl_centre_offset",
                                             size = founder_bead_size,
                                             colour = founder_bead_col)) +
-    scale_colour_gradient2(low = "green", high = "yellow")
+    ggplot2::scale_colour_gradient2(low = "green", high = "yellow")
 }
 
