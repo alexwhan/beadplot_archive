@@ -4,10 +4,12 @@
 \alias{make_founder_plot}
 \title{Make a founder plot}
 \usage{
-make_founder_plot(obj)
+make_founder_plot(obj, yvar = NULL)
 }
 \arguments{
 \item{obj}{An object of class 'cross', 'map', 'mpcross', 'tidy_gen_map'}
+
+\item{yvar}{Variable to map y to (character)}
 }
 \value{
 A ggplot object

@@ -4,10 +4,12 @@
 \alias{make_main_plot}
 \title{Makes a linear ggplot object based on genetic map}
 \usage{
-make_main_plot(obj)
+make_main_plot(obj, yvar = NULL)
 }
 \arguments{
 \item{obj}{An object of class 'cross', 'map', 'mpcross', 'tidy_gen_map'}
+
+\item{yvar}{Variable to map y to (character)}
 }
 \value{
 A ggplot object

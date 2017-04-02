@@ -37,7 +37,7 @@ make_main_qtl_plot <- function(obj, qtl_summary, main_bead_size = "qtl_perc_var"
 #' @return a ggplot object
 #' @export
 make_founder_qtl_plot <- function(obj, qtl_summary, founder_bead_size = "founder_logp", 
-                                  founder_bead_col = "founder_cont") {
+                                  founder_bead_col = "founder_cont", yvar = NULL) {
   obj_coords <- genomap::get_map_coords(obj)
   founder_qtl <- founder_qtl_data(qtl_summary)
   

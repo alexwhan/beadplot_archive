@@ -5,7 +5,7 @@
 \title{Make founder qtl plot}
 \usage{
 make_founder_qtl_plot(obj, qtl_summary, founder_bead_size = "founder_logp",
-  founder_bead_col = "founder_cont")
+  founder_bead_col = "founder_cont", yvar = NULL)
 }
 \arguments{
 \item{obj}{An object of class 'cross', 'map', 'mpcross', 'tidy_gen_map'}
